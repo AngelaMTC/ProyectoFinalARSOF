@@ -9,8 +9,11 @@ use App\Models\ProductModel;
 class AssignmentController extends Controller
 {
     //
-    public function index(Request $request, $id){
-        $products = $request->session()->get('products');
-        return view('products.home', compact('products'));
-    }
+    // public function index(Request $request, $id){
+    //     // $products = ProductModel::all();
+    //     // return view('products.index', compact('products'));
+
+    //     $products = \DB::table('products')->select('users.*')->get();
+    //     return view('products')->with('products', $products);
+    // }
 }

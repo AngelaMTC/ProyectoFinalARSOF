@@ -5,6 +5,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
 
 
 /*
@@ -56,3 +57,11 @@ Route::delete('/products/{id}', [ProductsController::class, 'destroy'])->name('p
 Route::get('/products/{id}', [ProductsController::class, 'edit'])->name('products.edit');
 
 Route::put('products/{id}', [ProductsController::class, 'update'])->name('products.update');
+
+
+//
+// Route::get('/home', [HomeController::class, 'index'])->name('home.index');
+Route::get('/', function() {
+    $products = \DB::table('products')->select('products.*')->get();
+    return view('home', compact('products'));
+} );

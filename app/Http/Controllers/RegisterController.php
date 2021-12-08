@@ -9,6 +9,10 @@ class RegisterController extends Controller
 {
     //
     public function create(){
+
+        // $products = ProductModel::all();
+
+        // return view('home.index', compact('products'));
         return view('auth.register');
     }
 
