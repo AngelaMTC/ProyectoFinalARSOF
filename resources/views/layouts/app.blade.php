@@ -16,17 +16,30 @@
   <body class="bg-gray-100 text-gray-800">
     <!-- Document body -->
 
-    <nav class="h-16 flex justify-end py-4 px-16"></nav>
-    <a href="{{route('products.index')}}" class="border border-indigo-500 
-    rounded px-4 pt-1 h-10 bg-white text-indigo-500 font-semibold mx-2">Products</a>
+    <nav class="flex py-5 bg-indigo-500 text-white">
+      <div class="w-1/2 px-12 mr-auto" >
+        <p class="text-2xl font-bold">Arquitectura de Software</p>
+      </div>
 
-    <a href="{{route('products.create')}}" class="text-white rounded px-4 pt-1 h-10 bg-indigo-500 font-semibold mx-2
-    hover:bg-blue-600">Create</a>
+      <ul class="w-1/2 px-16 ml-auto flex justify-end pt-1">
+      @if (auth()->check())
+      <li class="mx-8">
+        <p class="text-xl">Welcome<b> {{auth()->user()->name}}</b></p>      
+        </li>
+      <li>
+        <a href="{{route('login.destroy')}}" class="font-bold py-3 px-4 rounded-md bg-red-500 hover:bg-red-600">Log Out</a>
+      </li>
+      @else
+        <li class="mx-6">
+          <a href="{{route('login.store')}}" class="font-semibold hover:bg-indigo-700 py-3 px-4 rounded-md">Log In</a>
+        </li>
+        <li>
+          <a href="{{route('register.store')}}" class="font-semibold border-2 border-white py-2 px-4 rounded-md hover:bg-white hover:text-indigo-700">Register</a>
+      @endif
+      </ul>
+    </nav>
 
-    <main class="p-16 flex justify-center">
-        @yield('content')
-    </main>
-
+      @yield('content')
 
   </body>
 </html>

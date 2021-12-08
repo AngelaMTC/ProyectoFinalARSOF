@@ -1,10 +1,16 @@
 @extends('layouts.app')
 
-@section('title', 'Home')
+@section('title', 'Admin')
 
 @section('content')
+<nav class="h-16 flex justify-end py-4 px-16"></nav>
+    <a href="{{route('products.index')}}" class="border border-indigo-500 
+    rounded px-4 pt-1 h-10 bg-white text-indigo-500 font-semibold mx-2">Products</a>
 
-<div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
+    <a href="{{route('products.create')}}" class="text-white rounded px-4 pt-1 h-10 bg-indigo-500 font-semibold mx-2
+    hover:bg-blue-600">Create</a>
+
+<div class="bg-white overflow-hidden shadow-xl sm:rounded-lg py-4 mx-2">
 
     <table class="table-fixed w-full">
       <thead>
@@ -26,18 +32,12 @@
           <td class="p-3 text-center">{{$row->delivery}}</td>
           <td class="p-3 flex justify center">
 
-            {{-- <form  method="post" action="{{url('products/' . $product->id)}}"> --}}
-            {{-- <form action="{{ url('/products', ['iduser' => $products->$id]) }}" method="POST"> --}}
-            {{-- <form action="{{ route('products.destroy', $row->id )}}" method="POST"> --}}
-            {{-- <form href="{{ route('products.destroy', $row->id )}}" method="POST"> --}}
-              {{-- <form href="{{ route('products.destroy', 1 )}}" method="POST"> --}}
               <form method="POST" action="{{ url('/products/'. $row->id) }}">
               @csrf
               @method('delete')
               <button class="bg-red-500 text-white px-3 py-1 rounded-sm mx-1">
               <i class="fas fa-trash"></i></button>
             </form>
-            {{-- <a href="{{route('products.edit', $row->id)}}"  --}}
               <a href="{{ url('/products/'. $row->id) }}" 
               class="bg-green-500 text-white px-3 py-1 rounded-sm">
             <i class="fas fa-pen"></i></a>
