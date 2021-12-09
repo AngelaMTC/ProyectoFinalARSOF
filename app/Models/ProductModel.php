@@ -14,7 +14,8 @@ class ProductModel extends Model
     protected $fillable = [
         'title',
         'subject',
-        'delivery'
+        'delivery',
+        'status'
     ];
     
     public $timestamps = false;

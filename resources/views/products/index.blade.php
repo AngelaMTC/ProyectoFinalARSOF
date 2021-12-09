@@ -19,6 +19,7 @@
           <th class="w-1/10 py-4 ...">Title</th>
           <th class="w-1/8 py-4 ...">Subject</th>
           <th class="w-1/8 py-4 ...">Delivery</th>
+          <th class="w-1/8 py-4 ...">Status</th>
           <th class="w-28 py-4 ...">Actions</th>
         </tr>
       </thead>
@@ -30,6 +31,7 @@
           <td class="p-3 text-center">{{$row->title}}</td>
           <td class="p-3 text-center">{{$row->subject}}</td>
           <td class="p-3 text-center">{{$row->delivery}}</td>
+          <td class="p-3 text-center">{{$row->status}}</td>
           <td class="p-3 flex justify center">
 
               <form method="POST" action="{{ url('/products/'. $row->id) }}">

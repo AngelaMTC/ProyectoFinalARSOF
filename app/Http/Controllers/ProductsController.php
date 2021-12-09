@@ -47,6 +47,8 @@ class ProductsController extends Controller
         $product = ProductModel::find($id);
         $product->title =$input['title'];
         $product->subject =$input['subject'];
+        $product->delivery =$input['delivery'];
+        $product->status=$input['status'];
 
         $product->save();
         return redirect()->route('products.index');

@@ -19,7 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('title');
             $table->string('subject');
             $table->string('delivery');
-            $table->boolean('check')->default(0);
+            $table->string('status')->default('Not deliver');
             $table->timestamps();
         });
     }

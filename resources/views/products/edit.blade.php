@@ -6,7 +6,7 @@
 
 
 <form action="{{route('products.update', $product->id)}}" 
-    method="POST" class="bg-white w-1/3 p-4 border-gray-100 shadow-xl rounded-lg">
+    method="POST" class="bg-white w-full p-4 border-gray-100 shadow-xl rounded-lg">
 @csrf
 @method('put')
 

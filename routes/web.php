@@ -5,7 +5,7 @@ use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DeliveryController;
 
 
 /*
@@ -28,7 +28,7 @@ use App\Http\Controllers\HomeController;
 //     return view('products.index');
 // })->middleware('auth');
 Route::get('/', function () {
-    return view('home');
+    return view('auth.login');
 })->middleware('auth');
 
 Route::get('/register', [RegisterController::class, 'create'])->middleware('guest')->name('register.create');
@@ -58,8 +58,14 @@ Route::get('/products/{id}', [ProductsController::class, 'edit'])->name('product
 
 Route::put('products/{id}', [ProductsController::class, 'update'])->name('products.update');
 
+//User(Alumno):
+Route::get('/products/{id}', [DeliveryController::class, 'edit'])->name('products.edit');
 
-//
+Route::put('products/{id}', [DeliveryController::class, 'update'])->name('products.update');
+// Route::get('/products/{id}', [DeliveryController::class, 'editDelivery'])->name('products.editDelivery');
+// Route::put('/products/{status}', [DeliveryController::class, 'updateDelivery'])->name('products.updateDelivery');
+
+
 // Route::get('/home', [HomeController::class, 'index'])->name('home.index');
 Route::get('/', function() {
     $products = \DB::table('products')->select('products.*')->get();
